@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Descriptive Statistics Flashcard</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f4f3ef;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card-container {
+      perspective: 1000px;
+      width: 100%;
+      max-width: 640px;
+      height: 380px;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card.flipped { transform: rotateY(180deg); }
+
+    .face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 12px;
+      border: 0.5px solid #ddd;
+      background: #ffffff;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .back { transform: rotateY(180deg); }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 1rem 0 0.5rem;
+      color: #111;
+    }
+
+    .question-text {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .flip-hint {
+      font-size: 12px;
+      color: #aaa;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 500;
+      background: #E6F1FB;
+      color: #0C447C;
+    }
+
+    .answer-text {
+      font-size: 15px;
+      color: #111;
+      line-height: 1.6;
+      margin: 0.75rem 0 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .item {
+      background: #f4f3ef;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+
+    .item-label {
+      font-size: 11px;
+      color: #888;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .item-val {
+      font-size: 13px;
+      color: #111;
+    }
+
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .goal-text {
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card-container" onclick="this.querySelector('.card').classList.toggle('flipped')">
+  <div class="card">
+
+    <!-- FRONT -->
+    <div class="face front">
+      <div>
+        <span class="tag">Statistics · Foundations</span>
+        <h2>Descriptive Statistics</h2>
+        <p class="question-text">What is descriptive statistics, and what does it help us do?</p>
+      </div>
+      <div class="bottom-row">
+        <span class="pill">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+            <rect x="1" y="8" width="3" height="7" rx="1" fill="#378ADD"/>
+            <rect x="6" y="4" width="3" height="11" rx="1" fill="#378ADD"/>
+            <rect x="11" y="1" width="3" height="14" rx="1" fill="#378ADD"/>
+          </svg>
+          Stats
+        </span>
+        <span class="flip-hint">tap to reveal ↓</span>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="face back">
+      <div>
+        <span class="tag">Answer</span>
+        <p class="answer-text">
+          <strong style="font-weight: 500;">Descriptive statistics</strong> summarises and describes the main features of a dataset — without drawing conclusions beyond the data itself.
+        </p>
+        <div class="grid">
+          <div class="item">
+            <div class="item-label">Central tendency</div>
+            <div class="item-val">Mean, Median, Mode</div>
+          </div>
+          <div class="item">
+            <div class="item-label">Spread / dispersion</div>
+            <div class="item-val">Range, Variance, Std Dev</div>
+          </div>
+          <div class="item">
+            <div class="item-label">Shape</div>
+            <div class="item-val">Skewness, Kurtosis</div>
+          </div>
+          <div class="item">
+            <div class="item-label">Position</div>
+            <div class="item-val">Percentiles, Quartiles</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-row" style="margin-top: 0.5rem;">
+        <span class="goal-text">Goal: organise &amp; present data clearly</span>
+        <span class="flip-hint">tap to flip back ↑</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
